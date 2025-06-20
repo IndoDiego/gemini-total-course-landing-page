@@ -3,10 +3,11 @@ import React, { useState, useEffect } from 'react';
 interface RegistrationModalProps {
   isOpen: boolean;
   onClose: () => void;
+  onOpenPayment: (userData: { email: string; fullName: string }) => void;
   price: number;
 }
 
-const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, onClose, price }) => {
+const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, onClose, onOpenPayment, price }) => {
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -39,17 +40,19 @@ const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, onClose, 
       return;
     }
     setError('');
-    // Simulate API call
-    console.log('Form data submitted:', formData);
-    alert(`¡Gracias por registrarte en Gemini Total por €${price}! (Simulación)`);
+    // Simulate successful registration
+    console.log('Registration successful:', formData);
+    // Open payment modal with user data
+    onOpenPayment({ email: formData.email, fullName: formData.fullName });
     setFormData({ fullName: '', email: '', password: '', confirmPassword: '' }); // Reset form
-    onClose();
+    onClose(); // Close registration modal
   };
 
   const handleGoogleSignIn = () => {
     // Simulate Google OAuth
     console.log('Google sign-in initiated');
-    alert(`¡Registro con Gmail exitoso! Bienvenido a Gemini Total por €${price} (Simulación)`);
+    // Open payment modal with simulated user data
+    onOpenPayment({ email: 'usuario@gmail.com', fullName: 'Usuario Gmail' });
     onClose();
   };
 
