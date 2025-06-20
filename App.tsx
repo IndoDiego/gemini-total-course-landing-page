@@ -37,7 +37,8 @@ const App: React.FC = () => {
         <ProjectSection />
         <ResourcesSection 
           resources={COURSE_RESOURCES} 
-          onOpenDojoModal={handleOpenDojoModal} // Pass handler here
+          onOpenDojoModal={handleOpenDojoModal}
+          onOpenLoginModal={handleOpenModal}
         />
       </main>
       <Footer />

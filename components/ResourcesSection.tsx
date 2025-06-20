@@ -5,9 +5,10 @@ import ResourceCard from './ResourceCard';
 interface ResourcesSectionProps {
   resources: Resource[];
   onOpenDojoModal: () => void; // Added prop
+  onOpenLoginModal: () => void; // New prop for login modal
 }
 
-const ResourcesSection: React.FC<ResourcesSectionProps> = ({ resources, onOpenDojoModal }) => {
+const ResourcesSection: React.FC<ResourcesSectionProps> = ({ resources, onOpenDojoModal, onOpenLoginModal }) => {
   return (
     <section id="resources" className="py-16 md:py-24">
       <div className="container mx-auto px-6">
@@ -21,6 +22,7 @@ const ResourcesSection: React.FC<ResourcesSectionProps> = ({ resources, onOpenDo
               key={resource.id} 
               resource={resource} 
               onClick={resource.actionType === 'openDojoModal' ? onOpenDojoModal : undefined}
+              onEnrollClick={resource.actionType !== 'openDojoModal' ? onOpenLoginModal : undefined}
             />
           ))}
         </div>
