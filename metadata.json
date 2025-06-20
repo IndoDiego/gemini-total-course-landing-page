@@ -1,0 +1,5 @@
+{
+  "name": "Gemini Total Course Landing Page",
+  "description": "A responsive landing page for the 'Gemini Total: De Cero a Creador con IA' course, built with React, TypeScript, and Tailwind CSS. It showcases course modules, project details, and resources with an interactive accordion for module content.",
+  "requestFramePermissions": []
+}
